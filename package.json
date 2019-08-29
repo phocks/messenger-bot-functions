@@ -4,11 +4,16 @@
   "description": "Messenger bot functions",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "functions-framework --target=app"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1"
+    "@google-cloud/functions-framework": "^1.2.1",
+    "chroma-js": "^2.0.4",
+    "pureimage": "^0.1.6",
+    "express": "^4.17.1",
+    "uuid": "^3.3.3"
   }
 }
