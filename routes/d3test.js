@@ -25,8 +25,8 @@ module.exports = (req, res) => {
 
   data.forEach(function(d, i) {
     context.beginPath();
-    context.fillRect(scale(d), 150, 10, 10);
     context.fillStyle="red";
+    context.fillRect(scale(d), 150, 10, 10);
     context.fill();
     context.closePath();
   });
