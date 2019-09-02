@@ -1,19 +1,14 @@
 const express = require("express");
 const app = express();
 
-const indexRoute = require("./routes");
-const circleRandomColor = require("./routes/circleRandomColor");
-const nameInteractive = require("./routes/nameHistoryInteractive");
-const d3test = require("./routes/d3test");
-const puppeteer = require("./routes/puppeteer");
-
 const PORT = 5555;
 
-app.get("/", indexRoute);
-app.post("/name", nameInteractive);
-app.get("/circle-random-color", circleRandomColor);
-app.get("/d3test", d3test);
-app.get("/puppeteer", puppeteer);
+app.get("/", require("./routes"));
+app.post("/name", require("./routes/nameHistoryInteractive"));
+app.get("/circle-random-color", require("./routes/circleRandomColor"));
+app.get("/d3test", require("./routes/d3test"));
+app.get("/puppeteer", require("./routes/puppeteer"));
+app.get("/line-chart", require("./routes/lineChart"));
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
