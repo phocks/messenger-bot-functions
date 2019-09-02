@@ -11,7 +11,7 @@ module.exports = (req, res, next) => {
           type: "image",
           payload: {
             url:
-              "https://us-central1-abc-news-169508.cloudfunctions.net/messenger-bot-functions/d3test?" +
+              "https://us-central1-abc-news-169508.cloudfunctions.net/messenger-bot-functions/line-chart?" +
               uuidv1()
           }
         }

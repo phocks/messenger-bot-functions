@@ -9,6 +9,7 @@ app.get("/circle-random-color", require("./routes/circleRandomColor"));
 app.get("/d3test", require("./routes/d3test"));
 app.get("/puppeteer", require("./routes/puppeteer"));
 app.get("/line-chart", require("./routes/lineChart"));
+app.get("/node-canvas-test", require("./routes/nodeCanvasTest"));
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

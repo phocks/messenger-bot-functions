@@ -1,7 +1,11 @@
 const fs = require("fs");
 const PImage = require("pureimage");
+const { createCanvas, loadImage } = require("canvas");
 const chroma = require("chroma-js");
-const d3 = Object.assign({}, require("d3-scale"));
+const d3 = Object.assign({}, require("d3-scale"), require("d3-shape"));
+
+const width = 1080;
+const height = 810;
 
 var data = {
   "1959": [1, 1871],
@@ -64,46 +68,86 @@ var data = {
   freq: "58650"
 };
 
-var scale = d3
+const newData = [];
+
+for (let x in data) {
+  if (x === "Name" || x === "freq") continue;
+  newData.push({ year: +x, freq: data[x][0] });
+}
+
+const yScale = d3
   .scaleLinear()
-  .range([10, 390])
-  .domain([1, 23]);
+  .domain([0, 4000])
+  .range([height, 0]);
+
+const xScale = d3
+  .scaleLinear()
+  .domain([1944, 2018])
+  .range([0, width]);
 
 module.exports = (req, res) => {
-  const img = PImage.make(1080, 1440);
+  // const img = PImage.make(1080, 810);
 
-  const context = img.getContext("2d");
+  // const context = img.getContext("2d");
 
-  var fnt = PImage.registerFont("./fonts/Roboto-Regular.ttf", "Roboto");
+  const canvas = createCanvas(width, height);
+  const ctx = canvas.getContext("2d");
 
-  fnt.load(() => {
-    console.log("font loaded...");
+  const line = d3
+    .line()
+    .x(function(d) {
+      return xScale(d.year);
+    })
+    .y(function(d) {
+      return yScale(d.freq);
+    })
+    .curve(d3.curveCardinal)
+    .context(ctx);
 
-    context.fillStyle = "green";
-    context.font = "48pt 'Roboto'";
-    context.fillText("ABC", 80, 80);
+  // var fnt = PImage.registerFont("./fonts/Roboto-Regular.ttf", "Roboto");
 
-    data.forEach(function(d, i) {
-      context.beginPath();
-      context.fillStyle = "red";
-      context.fillRect(scale(d), 150, 10, 10);
-      context.fill();
-      context.closePath();
-    });
+  // fnt.load(() => {
+  //   console.log("font loaded...");
 
-    context.fillStyle = chroma.random().hex();
-    context.beginPath();
-    context.arc(50, 50, 40, 0, Math.PI * 2, true); // Outer circle
-    context.closePath();
-    context.fill();
+  ctx.fillStyle = "#333666";
+  ctx.fillRect(0, 0, width, height);
 
-    PImage.encodePNGToStream(img, fs.createWriteStream("/tmp/out.png"))
-      .then(() => {
-        const src = fs.createReadStream("/tmp/out.png");
-        src.pipe(res);
-      })
-      .catch(e => {
-        console.log("there was an error writing");
-      });
-  });
+  // console.log(newData);
+
+  ctx.beginPath();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "#FF2243";
+  line(newData);
+  ctx.stroke();
+
+  ctx.fillStyle = chroma.random().hex();
+  ctx.font = "48pt 'Roboto'";
+  ctx.fillText("Joshua", 180, 180);
+
+  // data.forEach(function(d, i) {
+  //   context.beginPath();
+  //   context.fillStyle = "red";
+  //   context.fillRect(scale(d), 150, 10, 10);
+  //   context.fill();
+  //   context.closePath();
+  // });
+
+  ctx.fillStyle = chroma.random().hex();
+  ctx.beginPath();
+  ctx.arc(50, 50, 40, 0, Math.PI * 2, true); // Outer circle
+  ctx.closePath();
+  ctx.fill();
+
+  // PImage.encodePNGToStream(img, fs.createWriteStream("/tmp/out.png"))
+  //   .then(() => {
+  //     const src = fs.createReadStream("/tmp/out.png");
+  //     src.pipe(res);
+  //   })
+  //   .catch(e => {
+  //     console.log("there was an error writing");
+  //   });
+  // });
+
+  res.set("Content-Type", "image/png");
+  res.send(canvas.toBuffer());
 };
