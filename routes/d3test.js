@@ -18,7 +18,7 @@ module.exports = (req, res) => {
 
   const context = img.getContext("2d");
 
-  var fnt = PImage.registerFont("./Roboto-Regular.ttf", "Roboto");
+  var fnt = PImage.registerFont("./fonts/Roboto-Regular.ttf", "Roboto");
 
   fnt.load(() => {
     console.log("loaded");
