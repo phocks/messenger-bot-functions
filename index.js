@@ -10,6 +10,7 @@ app.get("/d3test", require("./routes/d3test"));
 app.get("/puppeteer", require("./routes/puppeteer"));
 app.get("/line-chart", require("./routes/lineChart"));
 app.get("/node-canvas-test", require("./routes/nodeCanvasTest"));
+app.get("/chart-js-test", require("./routes/chart-js-test"));
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

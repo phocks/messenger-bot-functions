@@ -12,6 +12,8 @@
   "dependencies": {
     "@google-cloud/functions-framework": "^1.2.1",
     "canvas": "^2.6.0",
+    "chart.js": "^2.8.0",
+    "chartjs-node-canvas": "^2.4.0",
     "chroma-js": "^2.0.4",
     "d3-scale": "^3.0.1",
     "d3-selection": "^1.4.0",
