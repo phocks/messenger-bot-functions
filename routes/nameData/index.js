@@ -8,7 +8,7 @@ const db = low(adapter);
 module.exports = (req, res) => {
   const value = db
     .get("names")
-    .find({ Name: "NATHAN" })
+    .find({ Name: "JOSHUA" })
     .value();
 
   console.log(value);
