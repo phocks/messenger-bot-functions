@@ -6,12 +6,17 @@ const adapter = new FileSync("./routes/nameData/combinedWithRanks.json");
 const db = low(adapter);
 
 module.exports = (req, res) => {
-  const value = db
+  const searchString = req.params.firstName.toUpperCase();
+  console.log(searchString);
+
+  const result = db
     .get("names")
-    .find({ Name: "JOSHUA" })
+    .find({ Name: searchString })
     .value();
 
-  console.log(value);
+  console.log(result);
 
-  res.json(value);
+  const returnValue = result ? result : {message: "Name not found..."}
+
+  res.json(returnValue);
 };

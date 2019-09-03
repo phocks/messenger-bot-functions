@@ -12,7 +12,7 @@ app.get("/line-chart", require("./routes/lineChart"));
 app.get("/node-canvas-test", require("./routes/nodeCanvasTest"));
 app.get("/chart-js-test", require("./routes/chart-js-test"));
 app.get("/lowdb", require("./routes/lowdb"));
-app.get("/name-data", require("./routes/nameData"));
+app.get("/name-data/:firstName", require("./routes/nameData"));
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
