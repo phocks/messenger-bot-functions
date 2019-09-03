@@ -11,6 +11,7 @@ app.get("/puppeteer", require("./routes/puppeteer"));
 app.get("/line-chart", require("./routes/lineChart"));
 app.get("/node-canvas-test", require("./routes/nodeCanvasTest"));
 app.get("/chart-js-test", require("./routes/chart-js-test"));
+app.get("/lowdb", require("./routes/lowdb"));
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
