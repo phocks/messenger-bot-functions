@@ -1,5 +1,5 @@
 import * as low from "lowdb";
-import FileSync from "lowdb/adapters/FileSync";
+import * as FileSync from "lowdb/adapters/FileSync";
 
 // Loads json into database memory once on load
 const adapter = new FileSync("./src/routes/nameData/combinedWithRanks.json");
@@ -16,4 +16,15 @@ export default (req, res) => {
   const returnValue = result ? result : { message: "Name not found..." };
 
   res.json(returnValue);
+};
+
+export const getName = (firstName: String) => {
+  const searchString = firstName.toUpperCase();
+
+  const result = db
+    .get("names")
+    .find({ Name: searchString })
+    .value();
+
+  return result;
 };

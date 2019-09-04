@@ -30,4 +30,4 @@ app.listen(PORT, () => {
 });
 
 // Expose the express app to Google Cloud Functions
-export default { app };
+export { app };

@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc --watch",
     "start": "nodemon functions-framework --target=app"
   },
   "author": "",
@@ -26,6 +27,7 @@
     "uuid": "^3.3.3"
   },
   "devDependencies": {
-    "@types/node": "^12.7.4"
+    "@types/node": "^12.7.4",
+    "typescript": "^3.6.2"
   }
 }
