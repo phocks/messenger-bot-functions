@@ -3,10 +3,14 @@
   "version": "0.1.0",
   "description": "Messenger bot functions",
   "main": "dist/index.js",
+  "watch": {
+    "start": "dist/**/*"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "tsc --watch",
-    "start": "nodemon functions-framework --target=app"
+    "start": "functions-framework --target=app",
+    "watch": "npm-watch start"
   },
   "author": "",
   "license": "MIT",
@@ -22,6 +26,7 @@
     "express": "^4.17.1",
     "lowdb": "^1.0.0",
     "nodemon": "^1.19.1",
+    "npm-watch": "^0.6.0",
     "puppeteer": "^1.19.0",
     "pureimage": "^0.1.6",
     "uuid": "^3.3.3"

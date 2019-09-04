@@ -5,20 +5,7 @@ import * as FileSync from "lowdb/adapters/FileSync";
 const adapter = new FileSync("./src/routes/nameData/combinedWithRanks.json");
 const db = low(adapter);
 
-export default (req, res) => {
-  const searchString = req.params.firstName.toUpperCase();
-
-  const result = db
-    .get("names")
-    .find({ Name: searchString })
-    .value();
-
-  const returnValue = result ? result : { message: "Name not found..." };
-
-  res.json(returnValue);
-};
-
-export const getName = (firstName: String) => {
+const getName = (firstName: string) => {
   const searchString = firstName.toUpperCase();
 
   const result = db
@@ -28,3 +15,11 @@ export const getName = (firstName: String) => {
 
   return result;
 };
+
+export default (req, res) => {
+  const result = getName(req.params.firstName);
+  const returnValue = result ? result : { message: "Name not found..." };
+  res.json(returnValue);
+};
+
+export { getName };
