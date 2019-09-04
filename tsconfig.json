@@ -3,7 +3,9 @@
     "target": "es6",
     "module": "commonjs",
     "outDir": "dist",
-    "sourceMap": true
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node"
   },
   "include": [
     "./src/**/*"
@@ -15,6 +17,5 @@
     "*": [
       "src/*"
     ]
-  },
-  "types": ["node"]
+  }
 }
