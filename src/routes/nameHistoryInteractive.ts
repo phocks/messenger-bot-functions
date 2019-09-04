@@ -1,6 +1,6 @@
 const uuidv1 = require("uuid/v1");
 
-module.exports = (req, res, next) => {
+export default (req, res, next) => {
   var formData = Object.keys(req.body).map(k => `${k}: ${req.body[k]}`);
   console.log(req.body);
   res.type("text/plain");

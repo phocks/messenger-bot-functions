@@ -2,7 +2,7 @@ const Chart = require("chart.js");
 const { createCanvas, loadImage } = require("canvas");
 const { CanvasRenderService } = require("chartjs-node-canvas");
 
-module.exports = (req, res) => {
+export default (req, res) => {
   // const canvas = createCanvas(chart.width, chart.height);
   // const ctx = canvas.getContext("2d");
 

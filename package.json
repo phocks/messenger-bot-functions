@@ -2,7 +2,7 @@
   "name": "messenger-bot-functions",
   "version": "0.1.0",
   "description": "Messenger bot functions",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon functions-framework --target=app"
@@ -24,5 +24,8 @@
     "puppeteer": "^1.19.0",
     "pureimage": "^0.1.6",
     "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^12.7.4"
   }
 }

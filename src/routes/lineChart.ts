@@ -85,7 +85,7 @@ const xScale = d3
   .domain([1944, 2018])
   .range([0, width]);
 
-module.exports = (req, res) => {
+export default (req, res) => {
   // const img = PImage.make(1080, 810);
 
   // const context = img.getContext("2d");

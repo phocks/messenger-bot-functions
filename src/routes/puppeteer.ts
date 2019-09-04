@@ -7,7 +7,7 @@ async function getBrowserPage() {
   return browser.newPage();
 }
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
   const url = req.query.url;
 
   if (!url) {

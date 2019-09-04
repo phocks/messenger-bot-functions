@@ -1,6 +1,6 @@
 const { createCanvas, loadImage } = require("canvas");
 
-module.exports = (req, res) => {
+export default (req, res) => {
   const canvas = createCanvas(200, 200);
   const ctx = canvas.getContext("2d");
 

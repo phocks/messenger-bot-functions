@@ -10,7 +10,7 @@ var scale = d3
   .range([10, 390])
   .domain([1, 23]);
 
-module.exports = (req, res) => {
+export default (req, res) => {
   const img = PImage.make(400, 300);
 
   // const image = d3.select(img);

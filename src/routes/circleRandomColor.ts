@@ -1,8 +1,8 @@
-const fs = require("fs");
+import * as fs from "fs"
 var PImage = require("pureimage");
 var chroma = require("chroma-js");
 
-module.exports = (req, res) => {
+export default (req, res) => {
   var img = PImage.make(100, 100);
   var ctx = img.getContext("2d");
   ctx.fillStyle = chroma.random().hex();
