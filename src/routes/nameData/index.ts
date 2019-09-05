@@ -1,5 +1,6 @@
 import * as low from "lowdb";
 import * as FileSync from "lowdb/adapters/FileSync";
+import * as roundTo from "round-to";
 
 import * as proportions from "./birthProportionFactors.json";
 
@@ -49,7 +50,8 @@ const getNameData = (firstName: string) => {
   const chartArray = currentDataArray.map((freq, index) => {
     return {
       year: 1944 + index,
-      [searchString]: (freq / proportions[index]) * 100 //* ausBirths[index]
+      name: searchString,
+      percentage: roundTo(((freq / proportions[index]) * 100), 4) //* ausBirths[index]
     };
   });
 

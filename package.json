@@ -29,6 +29,7 @@
     "npm-watch": "^0.6.0",
     "puppeteer": "^1.19.0",
     "pureimage": "^0.1.6",
+    "round-to": "^4.0.0",
     "uuid": "^3.3.3"
   },
   "devDependencies": {

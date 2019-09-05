@@ -13,6 +13,7 @@ import lineChart from "./routes/lineChart";
 import nodeCanvasTest from "./routes/nodeCanvasTest";
 import chartJsTest from "./routes/chartJsTest";
 import lowdb from "./routes/lowdb";
+import chartName from "./routes/chartName";
 
 app.get("/", routes);
 app.post("/name", nameHistoryInteractive);
@@ -24,6 +25,7 @@ app.get("/node-canvas-test", nodeCanvasTest);
 app.get("/chart-js-test", chartJsTest);
 app.get("/lowdb", lowdb);
 app.get("/name-data/:firstName", nameData);
+app.get("/chart-name", chartName);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
