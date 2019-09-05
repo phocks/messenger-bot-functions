@@ -16,7 +16,7 @@ export default (req, res) => {
   });
 
   const width = 800;
-  const height = 800;
+  const height = 480;
   const configuration = {
     // The type of chart we want to create
     type: "line",
@@ -35,7 +35,7 @@ export default (req, res) => {
     },
 
     // Configuration options go here
-    options: {}
+    options: { devicePixelRatio: 2 }
   };
 
   const chartCallback = ChartJS => {
