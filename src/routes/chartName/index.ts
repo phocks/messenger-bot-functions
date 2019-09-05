@@ -44,6 +44,16 @@ export default (req, res) => {
     // Global plugin example: https://www.chartjs.org/docs/latest/developers/plugins.html
     ChartJS.plugins.register({
       // plugin implementation
+      beforeDraw: function(chartInstance) {
+        var ctx = chartInstance.chart.ctx;
+        ctx.fillStyle = "white";
+        ctx.fillRect(
+          0,
+          0,
+          chartInstance.chart.width,
+          chartInstance.chart.height
+        );
+      }
     });
     // New chart type example: https://www.chartjs.org/docs/latest/developers/charts.html
     ChartJS.controllers.MyType = ChartJS.DatasetController.extend({
