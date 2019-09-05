@@ -8,6 +8,8 @@ import * as proportions from "./birthProportionFactors.json";
 const adapter = new FileSync("./src/routes/nameData/combinedWithRanks.json");
 const db = low(adapter);
 
+const ROUNDING_PRECISION = 6;
+
 const getNameData = (firstName: string) => {
   const searchString = firstName.toUpperCase();
 
@@ -51,7 +53,7 @@ const getNameData = (firstName: string) => {
     return {
       year: 1944 + index,
       name: searchString,
-      percentage: roundTo(((freq / proportions[index]) * 100), 4) //* ausBirths[index]
+      percentage: roundTo(((freq / proportions[index]) * 100), ROUNDING_PRECISION) //* ausBirths[index]
     };
   });
 
