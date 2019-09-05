@@ -16,7 +16,7 @@ import lowdb from "./routes/lowdb";
 import chartName from "./routes/chartName";
 
 app.get("/", routes);
-app.post("/name", nameHistoryInteractive);
+app.post("/name-history-interactive", nameHistoryInteractive);
 app.get("/circle-random-color", circleRandomColor);
 app.get("/d3test", d3test);
 app.get("/puppeteer", puppeteer);
@@ -25,7 +25,7 @@ app.get("/node-canvas-test", nodeCanvasTest);
 app.get("/chart-js-test", chartJsTest);
 app.get("/lowdb", lowdb);
 app.get("/name-data/:firstName", nameData);
-app.get("/chart-name", chartName);
+app.get("/chart-name/:firstName", chartName);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

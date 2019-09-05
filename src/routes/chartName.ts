@@ -1,9 +1,9 @@
 const { CanvasRenderService } = require("chartjs-node-canvas");
 
-import { getNameData } from "../nameData";
+import { getNameData } from "./nameData";
 
 export default (req, res) => {
-  const returnedData = getNameData("joshua");
+  const returnedData: any = getNameData(req.params.firstName);
 
   const transformedData = { labels: [], data: [], name: "" };
 
@@ -15,8 +15,8 @@ export default (req, res) => {
     transformedData.name = entry.name;
   });
 
-  const width = 900;
-  const height = 400;
+  const width = 800;
+  const height = 800;
   const configuration = {
     // The type of chart we want to create
     type: "line",
@@ -27,8 +27,8 @@ export default (req, res) => {
       datasets: [
         {
           label: returnedData[0].name,
-          backgroundColor: "rgb(255, 99, 132)",
-          borderColor: "rgb(200, 99, 132)",
+          backgroundColor: "rgba(0,139,186,0.6)",
+          borderColor: "#007BAA",
           data: transformedData.data
         }
       ]

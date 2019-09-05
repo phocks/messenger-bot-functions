@@ -63,7 +63,7 @@ const getNameData = (firstName: string) => {
 
 export default (req, res) => {
   const result = getNameData(req.params.firstName);
-  const returnValue = result ? result : { message: "Name not found..." };
+  const returnValue = result ? result : { error: true };
   res.json(returnValue);
 };
 
