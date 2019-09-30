@@ -1,3 +1,10 @@
 export default (req, res) => {
-  res.json({message: "Hello.."})
+  console.log(req.body);
+
+  res.json({
+    messages: [
+      { text: "Welcome to the Chatfuel Rockets!" },
+      { text: "What are you up to?" }
+    ]
+  });
 };
