@@ -2,9 +2,12 @@ export default (req, res) => {
   console.log(req.body);
 
   res.json({
-    messages: [
-      { text: "Welcome to the Chatfuel Rockets!" },
-      { text: "What are you up to?" }
-    ]
+    set_attributes: {
+      "some attribute": "some value",
+      "another attribute": "another value"
+    },
+    block_names: ["Block 1"],
+    type: "show_block",
+    title: "Go!"
   });
 };
