@@ -12,7 +12,7 @@ export default (req, res) => {
   const payload = {
     messages: [
       {
-        text: prompts[Math.ceil(Math.random() * prompts.length)]
+        text: prompts[Math.ceil(Math.random() * prompts.length - 1)]
       }
     ]
   };
