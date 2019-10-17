@@ -1,3 +1,9 @@
+const elizabot = require("../lib/elizabot");
+
+elizabot.start(); // initializes eliza and returns a greeting message
+
+// let reply = elizabot.reply("I am tired") // returns a eliza-like reply based on the message text passed into it
+
 const prompts = [
   "How's it going?",
   "How has your day been so far?",
@@ -8,13 +14,17 @@ const prompts = [
 
 export default (req, res) => {
   console.log(req.body);
+  let reply = elizabot.reply(req.body["user response"]);
+  console.log(reply);
 
   const payload = {
     messages: [
       {
-        text: prompts[Math.ceil(Math.random() * prompts.length - 1)]
+        // text: prompts[Math.ceil(Math.random() * prompts.length - 1)]
+        text: reply
       }
-    ]
+    ],
+    redirect_to_blocks: [req.body["last visited block name"]]
   };
 
   res.json(payload);
