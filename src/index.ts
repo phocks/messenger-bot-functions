@@ -1,4 +1,4 @@
-require('dotenv').config()
+require("dotenv").config();
 import * as express from "express";
 const app = express();
 
@@ -16,6 +16,7 @@ import chartJsTest from "./routes/chartJsTest";
 import lowdb from "./routes/lowdb";
 import chartName from "./routes/chartName";
 import cloudBot from "./routes/cloudBot";
+import heatwaves from "./routes/heatwaves";
 
 app.get("/", routes);
 app.post("/name-history-interactive", nameHistoryInteractive);
@@ -29,6 +30,7 @@ app.get("/lowdb", lowdb);
 app.get("/name-data/:firstName", nameData);
 app.get("/chart-name/:firstName", chartName);
 app.all("/cloud-bot", cloudBot);
+app.all("/heatwaves", heatwaves);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
