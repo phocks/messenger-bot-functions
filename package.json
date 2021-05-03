@@ -32,7 +32,7 @@
     "nodemon": "^1.19.1",
     "npm-watch": "^0.6.0",
     "puppeteer": "^1.19.0",
-    "pureimage": "^0.1.6",
+    "pureimage": "^0.3.2",
     "round-to": "^4.0.0",
     "uuid": "^3.3.3"
   },
